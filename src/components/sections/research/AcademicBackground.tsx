@@ -1,6 +1,30 @@
+"use client"
+
 import { motion } from "framer-motion"
-import { fadeIn, staggerContainer, slideIn } from "@/lib/animations"
+import { staggerContainer, slideIn } from "@/lib/animations"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Variants } from 'framer-motion'
+
+const fadeInVariant: Variants = {
+  initial: { 
+    opacity: 0, 
+    y: 20 
+  },
+  animate: { 
+    opacity: 1, 
+    y: 0,
+    transition: {
+      duration: 0.5
+    }
+  },
+  exit: { 
+    opacity: 0, 
+    y: -20,
+    transition: {
+      duration: 0.3
+    }
+  }
+}
 
 export function AcademicBackground() {
   const education = [
@@ -38,7 +62,11 @@ export function AcademicBackground() {
     >
       <motion.h2 
         className="text-2xl md:text-3xl font-bold mb-8"
-        variants={fadeIn}
+        variants={fadeInVariant}
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        transition={{ duration: 0.5 }}
       >
         Academic Background
       </motion.h2>

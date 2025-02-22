@@ -1,5 +1,7 @@
+"use client"
+
 import { motion } from "framer-motion"
-import { fadeIn, staggerContainer, slideIn } from "@/lib/animations"
+import { fadeIn, staggerContainer } from "@/lib/animations"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
@@ -33,7 +35,7 @@ export function PublicationsList() {
       className="container"
       initial="initial"
       whileInView="animate"
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: true }}
       variants={staggerContainer}
     >
       <motion.h2 
@@ -44,7 +46,7 @@ export function PublicationsList() {
       </motion.h2>
       <div className="grid gap-6">
         {publications.map((pub, index) => (
-          <motion.div key={index} variants={slideIn}>
+          <motion.div key={index} variants={fadeIn}>
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="flex items-start justify-between">

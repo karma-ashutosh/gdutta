@@ -7,8 +7,8 @@ import { ThemeProvider } from '@/components/ThemeProvider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Girbani Dutta - Communications Consultant',
-  description: 'Professional portfolio and consulting services by Girbani Dutta, specializing in communications strategy and content development.',
+  title: 'Girbani Dutta',
+  description: 'Professional portfolio and consulting services',
 }
 
 export default function RootLayout({
@@ -26,9 +26,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Navigation />
-          <main className="min-h-screen bg-background">
-            {children}
-          </main>
+          {children}
         </ThemeProvider>
       </body>
     </html>

@@ -1,45 +1,40 @@
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { FileText, MessageSquare, Users } from "lucide-react"
+
 export function ServicesSection() {
   const services = [
     {
-      title: "Communication Strategy",
-      description: "Develop comprehensive communication strategies aligned with organizational goals",
-      icon: "📊"
+      title: "Communications Strategy",
+      description: "Develop comprehensive communication strategies aligned with your organizational goals.",
+      icon: MessageSquare
     },
     {
       title: "Content Development",
-      description: "Create engaging and effective content across various platforms and mediums",
-      icon: "✍️"
+      description: "Create engaging content that connects with your audience and drives results.",
+      icon: FileText
     },
     {
-      title: "Media Relations",
-      description: "Build and maintain strong relationships with media outlets and stakeholders",
-      icon: "🎯"
-    },
-    {
-      title: "Training & Workshops",
-      description: "Conduct communication workshops and training sessions for teams",
-      icon: "📚"
+      title: "Stakeholder Engagement",
+      description: "Build and maintain strong relationships with key stakeholders through effective communication.",
+      icon: Users
     }
   ]
 
   return (
-    <section className="py-20 px-4 md:px-6 lg:px-8 bg-muted/50">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          Consulting Services
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
-            <div 
-              key={index}
-              className="p-6 rounded-lg bg-card hover:shadow-lg transition-shadow"
-            >
-              <div className="text-4xl mb-4">{service.icon}</div>
-              <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+    <section className="container py-16">
+      <h2 className="text-3xl font-bold mb-12 text-center">Services</h2>
+      <div className="grid md:grid-cols-3 gap-8">
+        {services.map((service, index) => (
+          <Card key={index} className="hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <service.icon className="w-10 h-10 mb-4 text-primary" />
+              <CardTitle>{service.title}</CardTitle>
+            </CardHeader>
+            <CardContent>
               <p className="text-muted-foreground">{service.description}</p>
-            </div>
-          ))}
-        </div>
+            </CardContent>
+          </Card>
+        ))}
       </div>
     </section>
   )

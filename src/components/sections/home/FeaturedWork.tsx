@@ -1,40 +1,47 @@
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+
 export function FeaturedWork() {
-  const works = [
+  const projects = [
     {
-      title: "Communication Strategy Development",
-      description: "Developed comprehensive communication strategies for major organizations",
-      category: "Strategy"
+      title: "Strategic Communications Plan",
+      client: "International Organization",
+      description: "Developed and implemented a comprehensive communications strategy.",
+      tags: ["Strategy", "Planning", "International"]
     },
     {
-      title: "Content Development & Management",
-      description: "Created and managed content strategies across multiple platforms",
-      category: "Content"
-    },
-    {
-      title: "Research Publications",
-      description: "Published research work in leading academic journals",
-      category: "Research"
+      title: "Content Strategy Development",
+      client: "Tech Company",
+      description: "Created a content strategy to improve digital presence and engagement.",
+      tags: ["Content", "Digital", "Strategy"]
     }
   ]
 
   return (
-    <section className="py-20 px-4 md:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          Featured Work
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {works.map((work, index) => (
-            <div 
-              key={index}
-              className="p-6 rounded-lg bg-card hover:shadow-lg transition-shadow"
-            >
-              <div className="text-sm text-primary mb-2">{work.category}</div>
-              <h3 className="text-xl font-semibold mb-2">{work.title}</h3>
-              <p className="text-muted-foreground">{work.description}</p>
-            </div>
-          ))}
-        </div>
+    <section className="container py-16 space-y-8">
+      <div className="text-center">
+        <h2 className="text-3xl font-bold mb-4">Featured Work</h2>
+        <p className="text-muted-foreground max-w-2xl mx-auto">
+          A selection of recent projects and collaborations.
+        </p>
+      </div>
+      <div className="grid md:grid-cols-2 gap-8">
+        {projects.map((project, index) => (
+          <Card key={index} className="hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <CardTitle className="text-xl">{project.title}</CardTitle>
+              <p className="text-sm text-muted-foreground">{project.client}</p>
+            </CardHeader>
+            <CardContent>
+              <p className="mb-4">{project.description}</p>
+              <div className="flex gap-2 flex-wrap">
+                {project.tags.map((tag) => (
+                  <Badge key={tag} variant="secondary">{tag}</Badge>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        ))}
       </div>
     </section>
   )
